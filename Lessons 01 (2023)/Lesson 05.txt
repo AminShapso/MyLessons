@@ -1,0 +1,8 @@
+This is a regular line.
+There is a tab here:	.
+There are two tabs here:		.
+This,is,comma,delimited.
+This is int = 5.
+This is float = 6.666.
+This line ends with tab + white space + new line	 
+	This line starts with a tab.

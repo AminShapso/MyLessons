@@ -1,0 +1,23 @@
+ifelse:
+    if $CONTROLVARIABLE$ == $VAL1$:
+        pass
+    elif $CONTROLVARIABLE$ == $VAL2$:
+        pass
+    else:
+        pass
+
+
+print:
+    print(f'{$CONTROLVARIABLE$ = }')
+
+
+prints2:
+    print(', '.join([f'{v = }' for v in [$CONTROLVARIABLE1$, $CONTROLVARIABLE2$]]))
+
+
+prints3:
+    print(', '.join([f'{v = }' for v in [$CONTROLVARIABLE1$, $CONTROLVARIABLE2$, $CONTROLVARIABLE3$]]))
+
+
+prints:
+    print(', '.join([f'{v = }' for v in $CONTROLVARIABLE$]))

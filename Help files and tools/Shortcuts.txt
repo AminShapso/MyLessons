@@ -1,0 +1,11 @@
+Function                            |       Key combination                                     |       Info
+___________________________________________________________________________________________________________________________________________________________
+Actions                             |       CTRL + SHIFT + A                                    |       Look for ALL Pycharm functions
+History                             |       Right Click File → Local History → Show History     |       Comparison view of changes
+Code snippets / Live Templates      |       iter, custom: ifelse + print + prints               |       Shortcut for different functions
+
+
+
+from my_pyplot import omit_plot as _O, plot as _P, print_chrome as _PC, clear as _PP, print_lines as _PL
+import my_graphs as _G
+import my_tools
