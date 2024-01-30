@@ -3,6 +3,7 @@ ________________________________________________________________________________
 Actions                             |       CTRL + SHIFT + A                                    |       Look for ALL Pycharm functions
 History                             |       Right Click File → Local History → Show History     |       Comparison view of changes
 Code snippets / Live Templates      |       iter, custom: ifelse + print + prints               |       Shortcut for different functions
+List Comprehensions                 |       N / A                                               |       Shorter syntax when you want to create a new list
 
 
 
