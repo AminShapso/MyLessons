@@ -1,14 +1,46 @@
+import pandas as pd
+
+
+def addition(n1, n2):
+    return n1 + n2
+
+
+def multiply(n1, n2):
+    return n1 * n2
+
+
+def power(n1, n2):
+    return n1 ** n2
+
+
+def division(n1, n2):
+    return n1 / n2
+
+
+def olala(n1):
+    return str(n1) + '-olala'
+
+
 dict_math_functions = {"add": lambda n1, n2: n1 + n2,
                        "mul": lambda n1, n2: n1 * n2,
                        "pow": lambda n1, n2: n1 ** n2,
-                       "dev": lambda n1, n2: n1 / n2}
-
-
-for i, (key, value) in enumerate(dict_math_functions.items()):
-    print(f'item number {i + 1} is: {key} = {value}')
-print()
+                       "div": lambda n1, n2: n1 / n2}
 
 a = 2
 b = 4
-for func in ["add", "mul", "pow", "dev"]:
-    print(f'The {func} function off {a} and {b} is {dict_math_functions[func](a , b)}')
+df = pd.DataFrame({'column A': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'column B': [0, 0, 2, 2, 0, 0, 4, 4, 0, 0]})
+
+for key in ["add", "mul", "pow", "div"]:
+    print(f'The {key} function off {a} and {b} is {dict_math_functions[key](a, b)}')
+print()
+print(f'The addition off {a} and {b} is {addition(a, b)}')
+print(f'The multiply off {a} and {b} is {multiply(a, b)}')
+print(f'The power off {a} and {b} is {power(a, b)}')
+print(f'The division off {a} and {b} is {division(a, b)}')
+print()
+
+print(df)
+print(f'new df is {df.map(olala)}')
+print(f'new df is {df.map(lambda s: str(s) + '-olala')}')
+for key in ["add", "mul", "pow", "div"]:
+    print(f'The {key} function off the df is {df.map(lambda n: dict_math_functions[key](n, 2))}')

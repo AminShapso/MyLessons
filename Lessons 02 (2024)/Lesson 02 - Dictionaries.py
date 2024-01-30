@@ -18,3 +18,15 @@ for a, b in zip([5, 10, 7, "mana"], [8, 8, 7, 0]):
         print(dict_output_messages["b"])
     else:
         print(dict_output_messages["tie"])
+
+
+dict_random = {True: False,
+               "": "Hello my name is Igor",
+               0: 123,
+               (1, 2): [1, 2, 3],
+               # []: [1, 2, 3],   # list is unhashable
+               None: None}
+print()
+for i, (key, value) in enumerate(dict_random.items()):
+    print(f'item number {i + 1} is: {key} = {value}')
+print()
