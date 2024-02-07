@@ -1,4 +1,5 @@
-ifelse:
+# ## ### #### ##### #### ### ## #   ifelse   # ## ### #### ##### #### ### ## #
+'if' + 'elif' + 'else'
     if $CONTROLVARIABLE$ == $VAL1$:
         pass
     elif $CONTROLVARIABLE$ == $VAL2$:
@@ -7,17 +8,46 @@ ifelse:
         pass
 
 
-print:
+
+# ## ### #### ##### #### ### ## #   complie   # ## ### #### ##### #### ### ## #
+List comprehension with 'if' + 'else'
+    [$VAR_EXPR$ for $VAR$ in $ITERABLE$ if $VAR_EXPR_IF$ else $VAR_EXPR_ELSE$]
+
+
+
+# ## ### #### ##### #### ### ## #   nestedl   # ## ### #### ##### #### ### ## #
+Nested List comprehension
+    [$VAR$ for $ITERABLE2$ in $ITERABLE1$ for $VAR$ in $ITERABLE2$]
+
+
+
+# ## ### #### ##### #### ### ## #   nestedli   # ## ### #### ##### #### ### ## #
+Nested List comprehension with 'if'
+    [$VAR$ for $ITERABLE2$ in $ITERABLE1$ for $VAR$ in $ITERABLE2$ if $VAR_EXPR_IF$]
+
+
+
+# ## ### #### ##### #### ### ## #   nestedlie   # ## ### #### ##### #### ### ## #
+Nested List comprehension with 'if' + 'else'
+    [$VAR$ if $VAR_EXPR_IF$ else $VAR_EXPR_ELSE$ for $ITERABLE2$ in $ITERABLE1$ for $VAR$ in $ITERABLE2$]
+
+
+
+# ## ### #### ##### #### ### ## #   print   # ## ### #### ##### #### ### ## #
+print1:
     print(f'{$CONTROLVARIABLE$ = }')
 
-
 prints2:
-    print(', '.join([f'{v = }' for v in [$CONTROLVARIABLE1$, $CONTROLVARIABLE2$]]))
-
+    print(f'{$CONTROLVARIABLE1$ = }, {$CONTROLVARIABLE2$ = }')
 
 prints3:
-    print(', '.join([f'{v = }' for v in [$CONTROLVARIABLE1$, $CONTROLVARIABLE2$, $CONTROLVARIABLE3$]]))
+    print(f'{$CONTROLVARIABLE1$ = }, {$CONTROLVARIABLE2$ = }, {$CONTROLVARIABLE3$ = }')
 
+prints4:
+    print(f'{$CONTROLVARIABLE1$ = }, {$CONTROLVARIABLE2$ = }, {$CONTROLVARIABLE3$ = }, {$CONTROLVARIABLE4$ = }')
+
+prints5:
+    print(f'{$CONTROLVARIABLE1$ = }, {$CONTROLVARIABLE2$ = }, {$CONTROLVARIABLE3$ = }, {$CONTROLVARIABLE4$ = }, {$CONTROLVARIABLE5$ = }')
 
 prints:
     print(', '.join([f'{v = }' for v in $CONTROLVARIABLE$]))
