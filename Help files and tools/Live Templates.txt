@@ -11,7 +11,7 @@
 
 # ## ### #### ##### #### ### ## #   complie   # ## ### #### ##### #### ### ## #
 List comprehension with 'if' + 'else'
-    [$VAR_EXPR$ for $VAR$ in $ITERABLE$ if $VAR_EXPR_IF$ else $VAR_EXPR_ELSE$]
+    [$VAR_EXPR$ if $VAR_EXPR_IF$ else $VAR_EXPR_ELSE$ for $VAR$ in $ITERABLE$]
 
 
 
