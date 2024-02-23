@@ -3,10 +3,16 @@ ________________________________________________________________________________
 Actions                             |       CTRL + SHIFT + A                                    |       Look for ALL Pycharm functions
 History                             |       Right Click File → Local History → Show History     |       Comparison view of changes
 Code snippets / Live Templates      |       iter, custom: ifelse + print + prints               |       Shortcut for different functions
-List Comprehensions                 |       N / A                                               |       Shorter syntax when you want to create a new list
 
 
 
-from my_pyplot import omit_plot as _O, plot as _P, print_chrome as _PC, clear as _PP, print_lines as _PL
-import my_graphs as _G
-import my_tools
+How to import my libraries:
+    from my_pyplot import omit_plot as _O, plot as _P, print_chrome as _PC, clear as _PP, print_lines as _PL
+    import my_graphs as _G
+    import my_tools
+
+
+
+Things to remember:
+    List Comprehensions = [n for n in list]
+    import heartrate; heartrate.trace(browser=True)
