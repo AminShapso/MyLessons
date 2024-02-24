@@ -37,16 +37,16 @@ Nested List comprehension with 'if' + 'else'
 print1:
     print(f'{$CONTROLVARIABLE$ = }')
 
-prints2:
+print2:
     print(f'{$CONTROLVARIABLE1$ = }, {$CONTROLVARIABLE2$ = }')
 
-prints3:
+print3:
     print(f'{$CONTROLVARIABLE1$ = }, {$CONTROLVARIABLE2$ = }, {$CONTROLVARIABLE3$ = }')
 
-prints4:
+print4:
     print(f'{$CONTROLVARIABLE1$ = }, {$CONTROLVARIABLE2$ = }, {$CONTROLVARIABLE3$ = }, {$CONTROLVARIABLE4$ = }')
 
-prints5:
+print5:
     print(f'{$CONTROLVARIABLE1$ = }, {$CONTROLVARIABLE2$ = }, {$CONTROLVARIABLE3$ = }, {$CONTROLVARIABLE4$ = }, {$CONTROLVARIABLE5$ = }')
 
 prints:

@@ -1,36 +1,67 @@
-from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.image import Image
-from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
-
 #### URL:
 ## https://realpython.com/mobile-app-kivy-python/
 
+from kivy.app import App
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.uix.textinput import TextInput
+
+from kivy.core.window import Window
+Window.size = (720, 1080)
+
 
 class MainApp(App):
-    def on_press_button_2(self):
-        print('You pressed the button!')
-
-
-    def on_press_button(self, instance):
-        self.on_press_button_2()
-
-
-
     def build(self):
-        layout = BoxLayout(padding=10, orientation='vertical')
-        btn = Button(text="Button", background_color="red")
-        btn.bind(on_press=self.on_press_button)
-        layout.add_widget(btn)
-        label = Label(text='Hello from Kivy', size_hint=(1, 1), pos_hint={'center_x': .5, 'center_y': .5})
-        layout.add_widget(label)
-        img = Image(source=r"C:\Users\USER\Pictures\Snuba Diving Eilat 13-09-2016\AMBA0009.jpg", size_hint=(1, .5), pos_hint={'center_x': .5, 'center_y': .5})
-        layout.add_widget(img)
-        layout.add_widget(Button())
-        return layout
+        self.operators = ["/", "*", "+", "-"]
+        self.last_was_operator = None
+        self.last_button = None
+        main_layout = BoxLayout(orientation="vertical")
+        self.solution = TextInput(multiline=False, readonly=True, halign="right", font_size=55)
+        main_layout.add_widget(self.solution)
+        buttons = [
+            ["7", "8", "9", "/"],
+            ["4", "5", "6", "*"],
+            ["1", "2", "3", "-"],
+            [".", "0", "C", "+"],
+        ]
+        for row in buttons:
+            h_layout = BoxLayout()
+            for label in row:
+                button = Button(text=label)
+                button.bind(on_press=self.on_button_press)
+                h_layout.add_widget(button)
+            main_layout.add_widget(h_layout)
+
+        equals_button = Button(text="=")
+        equals_button.bind(on_press=self.on_solution)
+        main_layout.add_widget(equals_button)
+
+        return main_layout
+
+    def on_button_press(self, instance):
+        current = self.solution.text
+        button_text = instance.text
+
+        if button_text == "C":      # Clear the solution widget
+            self.solution.text = ""
+        else:
+            if current == "" and button_text in self.operators:
+                return  # First character cannot be an operator
+            elif current and (self.last_was_operator and button_text in self.operators):
+                new_text = current[:-1] + button_text
+            else:
+                new_text = current + button_text
+            self.solution.text = new_text
+        self.last_button = button_text
+        self.last_was_operator = self.last_button in self.operators
+
+    def on_solution(self, instance):
+        text = self.solution.text
+        if text:
+            solution = str(eval(self.solution.text))
+            self.solution.text = solution
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = MainApp()
     app.run()
