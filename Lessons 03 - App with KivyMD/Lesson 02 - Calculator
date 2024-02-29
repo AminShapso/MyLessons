@@ -1,0 +1,38 @@
+# ## ### URL ### ## #
+
+https://realpython.com/mobile-app-kivy-python/
+
+
+
+
+# ## ### Export to Android ### ## #
+
+01 pip install buildozer
+
+
+02 Create new folder and run the following command via Terminal: $ buildozer init
+
+
+03 This will create a buildozer.spec file that you’ll use to configure your build.
+For this example, you can edit the first few lines of the spec file as follows:
+[app]
+
+# (str) Title of your application
+title = KvCalc
+
+# (str) Package name
+package.name = kvcalc
+
+# (str) Package domain (needed for android/ios packaging)
+package.domain = org.kvcalc
+
+
+04 Feel free to browse the rest of the file to see what else you can change.
+At this point, you’re almost ready to build your application, but first, you’ll want to install the dependencies for buildozer.
+dependencies = https://buildozer.readthedocs.io/en/latest/installation.html#targeting-android
+
+
+05 Once those are installed, copy your calculator application into your new folder and rename it to main.py.
+This is required by buildozer. If you don’t have the file named correctly, then the build will fail.
+Now you can run the following command:
+$ buildozer -v android debug

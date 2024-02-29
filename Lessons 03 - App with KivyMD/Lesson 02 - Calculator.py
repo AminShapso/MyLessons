@@ -1,13 +1,12 @@
-#### URL:
-## https://realpython.com/mobile-app-kivy-python/
-
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 
-from kivy.core.window import Window
-Window.size = (720, 1080)
+set_window_size = True
+if set_window_size:
+    from kivy.core.window import Window
+    Window.size = (720, 1080)
 
 
 class MainApp(App):
