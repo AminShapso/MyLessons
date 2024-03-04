@@ -14,5 +14,6 @@ How to import my libraries:
 
 
 Things to remember:
-    List Comprehensions = [n for n in list]
-    import heartrate; heartrate.trace(browser=True)
+    List Comprehensions             =       [n for n in list]
+    Track script progress           =       import heartrate; heartrate.trace(browser=True)
+    Easy GUI for EXE exports        =       C:\Users\eddy.a\AppData\Local\Programs\Python\Python312\Scripts\auto-py-to-exe
