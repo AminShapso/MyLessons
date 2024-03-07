@@ -2,11 +2,21 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+from kivy.utils import platform
+if platform == "android":
+    from jnius import autoclass
+
 
 set_window_size = True
-if set_window_size:
+if platform == "android":
+    PythonActivity = autoclass("org.kivy.android.PythonActivity")
+    ActivityInfo = autoclass("android.content.pm.ActivityInfo")
+    activity = PythonActivity.mActivity
+    activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER)  # set orientation according to user's preference
+elif set_window_size:
     from kivy.core.window import Window
-    Window.size = (720, 1080)
+    Window.size = (540, 720)
+
 
 
 class MainApp(App):
@@ -44,6 +54,8 @@ class MainApp(App):
         if button_text == "C":      # Clear the solution widget
             self.solution.text = ""
         else:
+            if self.solution.text == "ERROR":
+                current = ""
             if current == "" and button_text in self.operators:
                 return  # First character cannot be an operator
             elif current and (self.last_was_operator and button_text in self.operators):
@@ -57,7 +69,10 @@ class MainApp(App):
     def on_solution(self, instance):
         text = self.solution.text
         if text:
-            solution = str(eval(self.solution.text))
+            try:
+                solution = str(eval(self.solution.text))
+            except:
+                solution = "ERROR"
             self.solution.text = solution
 
 

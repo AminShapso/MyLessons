@@ -27,6 +27,10 @@ package.name = kvcalc
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.kvcalc
 
+# (list) Supported orientations
+# Valid options are: landscape, portrait, portrait-reverse or landscape-reverse
+orientation = all
+
 
 04 Feel free to browse the rest of the file to see what else you can change.
 At this point, you’re almost ready to build your application, but first, you’ll want to install the dependencies for buildozer.
