@@ -5,7 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout
 
 
-class Main01App(App):
+class MainExample01App(App):
     def on_press_button(self, instance):
         self.on_press_button_2()
 
@@ -26,5 +26,5 @@ class Main01App(App):
 
 
 if __name__ == '__main__':
-    app = Main01App()
+    app = MainExample01App()
     app.run()

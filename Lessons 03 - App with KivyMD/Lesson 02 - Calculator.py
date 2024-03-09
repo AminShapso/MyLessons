@@ -1,4 +1,5 @@
 from kivy.app import App
+from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
@@ -7,6 +8,7 @@ if platform == "android":
     from jnius import autoclass
 
 
+# ## ### True ## False ### ## #
 set_window_size = True
 if platform == "android":
     PythonActivity = autoclass("org.kivy.android.PythonActivity")
@@ -14,7 +16,7 @@ if platform == "android":
     activity = PythonActivity.mActivity
     activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER)  # set orientation according to user's preference
 elif set_window_size:
-    from kivy.core.window import Window
+                                       
     Window.size = (540, 720)
 
 
@@ -41,9 +43,15 @@ class MainApp(App):
                 h_layout.add_widget(button)
             main_layout.add_widget(h_layout)
 
+        h_layout = BoxLayout()
         equals_button = Button(text="=")
         equals_button.bind(on_press=self.on_solution)
-        main_layout.add_widget(equals_button)
+        h_layout.add_widget(equals_button)
+
+        edebug_button = Button(text="Debug", size_hint=(0.333333, 1))
+        edebug_button.bind(on_press=self.print_debug)
+        h_layout.add_widget(edebug_button)
+        main_layout.add_widget(h_layout)
 
         return main_layout
 
@@ -74,6 +82,9 @@ class MainApp(App):
             except:
                 solution = "ERROR"
             self.solution.text = solution
+
+    def print_debug(self, instance):
+        self.solution.text = f'x = {Window.size[0]}, y = {Window.size[1]}'
 
 
 if __name__ == "__main__":
