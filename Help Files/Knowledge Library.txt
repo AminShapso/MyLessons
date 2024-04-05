@@ -1,0 +1,39 @@
+###################################################################################################################################################
+###############################################################      Shortcuts      ###############################################################
+
+
+                 Function                 |                      Key combination                      |                     Info
+__________________________________________|___________________________________________________________|_____________________________________________
+           Run in the Debug Mode          |                        SHIFT + F9                         |             Runs the last run              
+            Run without Debug             |                        SHIFT + F10                        |             Runs the last run              
+             Enter a Function             |                         CTRL + B                          |            No need to highlight            
+            Comment / Uncomment           |                         CTRL + /                          |       Works also for multiple lines        
+                 Actions                  |                     CTRL + SHIFT + A                      |       Look for ALL Pycharm functions       
+                 History                  |      Right Click File → Local History → Show History      |         Comparison view of changes         
+      Code snippets / Live Templates      |           iter, custom: ifelse + print + prints           |      Shortcut for different functions      
+
+
+                      
+                  
+                       
+
+
+###################################################################################################################################################
+######################################################      How to import my libraries      #######################################################
+
+
+my_graphs.py      →      from my_pyplot import omit_plot as _O, plot as _P, print_chrome as _PC, clear as _PP, print_lines as _PL
+my_pyplot.py      →      import my_graphs as _G
+my_tools.py       →      import my_tools
+
+
+
+
+
+###################################################################################################################################################
+##########################################################      Things to remember      ###########################################################
+
+
+List Comprehensions           →      [n for n in list]
+Track script progress         →      import heartrate; heartrate.trace(browser=True)
+Easy GUI for EXE exports      →      C:\Users\eddy.a\AppData\Local\Programs\Python\Python312\Scripts\auto-py-to-exe
