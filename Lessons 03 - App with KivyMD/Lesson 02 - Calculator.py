@@ -1,3 +1,9 @@
+"""
+Link to GitHub:
+https://github.com/mnrclab/Build_Mobile_App_With_Python_Kivy_Framework
+"""
+
+
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
