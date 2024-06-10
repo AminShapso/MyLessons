@@ -1,0 +1,84 @@
+############   Prerequisites   ############
+
+
+There are two common methods to open virtual environments:
+1. virtualenv: a very popular tool that creates isolated Python environments for Python libraries.
+   It works by installing a bunch of files in a directory, and then modifying the PATH (in /bin) environment variable to prefix it with a custom bin directory.
+   An exact copy of the python binary is placed in this directory, but Python is programmed to look for libraries relative to its path first, in the environment directory.
+   Once activated, you can install packages in the virtual environment using pip.
+
+2. venv: a package shipped with Python 3, which you can run using "python3 -m venv".
+   It serves the same purpose as virtualenv, but only has a subset of its features.
+   virtualenv continues to be more popular than venv, especially since the former supports both Python 2 and 3.
+
+
+
+########################   venv   ########################
+
+
+1. Creation of virtual environments is done by executing the command venv:
+~  python -m venv /path/to/new/virtual/environment
+
+2. On Windows, invoke the venv command as follows:
+~  c:\>Python35\python -m venv c:\path\to\myenv
+   
+   Alternatively, if you configured the PATH and PATHEXT variables for your Python installation:
+~  c:\>python -m venv c:\path\to\myenv
+
+3. A virtual environment may be “activated” using a script in its binary directory (bin on POSIX; Scripts on Windows):
+~  cd baseDirectory/bin/  
+~  source activate
+   
+   Deactivate new venv:
+~  deactivate
+
+
+
+########################   virtualenv   ########################
+
+
+1. virtualenv needs to be installed, as it is not an official library of PyPI:
+~  pip install virtualenv
+
+2. Creation of virtual environments is done by executing the command venv:
+~  virtualenv /path/to/new/virtual/environment
+
+3. To activate, run the batch file:
+~  /path/to/new/virtual/environment/Scripts/activate.bat
+   Alternatively, if you configured the PATH and PATHEXT variables for your Python installation:
+~  c:\>python -m venv c:\path\to\myenv
+
+4. A virtual environment may be “activated” using a script in its binary directory (bin on POSIX; Scripts on Windows):
+~  cd baseDirectory/bin/  
+~  source activate
+   
+5. Deactivate new venv:
+~  deactivate
+   You can also just delete the folder without extra steps
+
+
+########################   pip (Preferred Installer Program)   ########################
+
+
+a. Check where is pip:
+~  where pip
+
+b. To view all installed libraries (including pip itself and pre-installed libraries):
+~  pip list
+
+c. To view all installed libraries by the user:
+~  pip freeze
+   Or, only the local installs:
+~  pip freeze --local
+
+d. Generate a requirements text file:
+~  pip freeze > requirements.txt
+
+e. To install from a requirements text file:
+~  pip install -r requirements.txt
+
+f. You can even use a version range with pip install command... be sure to add apostrophes (') for ranges:
+~  pip install 'numpy>=1.3.0,<1.4.0' or pip install numpy==1.3.0
+
+g. To force delete newer installs (to downgrade):
+~  pip install --force-reinstall -v ""

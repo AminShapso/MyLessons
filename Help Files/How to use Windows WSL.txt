@@ -1,0 +1,39 @@
+############   Prerequisites (Use one time only - per folder?)   ############
+
+
+sudo apt update
+sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+pip3 install --user --upgrade Cython==0.29.33 virtualenv
+pip3 install --user --upgrade buildozer
+
+
+
+
+
+
+
+########################   Proccess   ########################
+
+
+1. Go to "\\wsl.localhost\Ubuntu\root" and paste your files there to access them from WSL.
+
+
+2. Use "cd" to select the dir
+   Or, use "SHIFT" + "Mouse Right-click" to open the Shell.
+
+
+3. to use Buildozer:
+   export PATH=$PATH:~/.local/bin/
+   
+   that value will only last in the PATH for the duration of the session. To include a value in the PATH permanently, edit the .bashrc file from your home:
+   sudo vim ~/.bashrc
+   export PATH=$PATH:~/.local/bin/
+   
+   Or, open and edit manually.
+   
+   
+4. To export a spec file:
+   buildozer init
+   
+5. Build the APK:
+   buildozer -v android debug

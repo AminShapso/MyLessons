@@ -1,0 +1,66 @@
+# ## ### #### #####   URLs   ##### #### ### ## #
+
+Android App using Linux:
+https://realpython.com/mobile-app-kivy-python/
+
+Android App using Google Colab (instructions below):
+https://dev.to/ngonidzashe/how-to-use-google-colab-to-package-kivymd-applications-with-buildozer-46bl
+
+All the available permissions:
+https://developer.android.com/reference/android/Manifest.permission.html
+
+
+
+# ## ### #### #####   Google Colab   ##### #### ### ## #
+
+01   Change the file name to "main.py". 
+
+02   Now create a cell and run the following lines:
+!sudo apt update
+!sudo apt install -y git zip unzip openjdk-17-jdk python3-pip autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+!pip3 install --user --upgrade Cython==0.29.33 virtualenv
+
+03   Install buildozer dependencies in one fell swoop with :
+
+!git clone https://github.com/kivy/buildozer
+%cd buildozer
+!python setup.py build
+!pip install -e .
+%cd ..
+
+04   Upload your files to Colab by clicking on the files icon and then right-clicking and clicking upload (Uuuh what? 😫).
+
+05   After the files have been uploaded, run the following to create a file named "buildozer.spec":
+!buildozer init
+
+06   Double-click the file to edit it. You can change the application name and attributes here, for example:
+title = SolarEdge FC App
+package.name = SEFC
+version = 1.0
+
+07   You can also change the requirements:
+requirements = python3, kivy==2.1.0, kivymd==1.1.1, sdl2_ttf==2.0.15, pillow
+
+08   If your application requires special permissions such as internet or storage, scroll down to android.permissions:
+android.permissions = android.permission.INTERNET
+
+09.a   Regarding the oreintation, you can choose the following:
+oreintation = landscape, portrait, portrait-reverse or landscape-reverse
+
+09.b   Or better yet, change it according the phone sensor, install these packages and then enter the followind code:
+pip install Cython, pyjnius
+if platform == "android":
+    from jnius import autoclass
+    PythonActivity = autoclass("org.kivy.android.PythonActivity")
+    ActivityInfo = autoclass("android.content.pm.ActivityInfo")
+    activity = PythonActivity.mActivity
+    activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER)
+
+10   Run the following command to package the application:
+!buildozer -v android debug
+
+11   This process can take a long time...  After successful execution, the apk file is saved in the bin folder.
+Packaging applications this way is faster than having to go through installing all the requirements on your PC but this does have a draw back.
+You can't run buildozer -v android deploy run logcat which displays the logs so that you can search through them to identify errors.
+You can't do that on colab, but you can if you're on Linux (perhaps you should just switch to linux 😁).
+This is where Android Debug Bridge (adb) comes in.
