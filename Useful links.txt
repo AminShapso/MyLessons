@@ -1,0 +1,2 @@
+Tic-Tac-Toe game application designed and developed in Kivy framework:
+https://www.netguru.com/blog/building-cross-platform-gui-applications-in-kivy)
