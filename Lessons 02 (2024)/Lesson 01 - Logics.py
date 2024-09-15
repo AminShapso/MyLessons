@@ -1,7 +1,7 @@
 """
 The == operator compares the value or equality of two objects
 whereas the Python "is" operator checks whether two variables point to the same object in memory.
-You can yuse "is" only for True / False / None statements
+You can use "is" only for True / False / None statements
 Syntax:
 if x is not None
 if not x == None
